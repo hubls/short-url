@@ -6,28 +6,9 @@
       layout:decorate="~{common/layouts/defaultLayout}"
       layout:fragment="Content"
 >
-<head>
-    <title th:text="${title}">기본 제목</title>
 
-    <!-- inline CSS 영역-->
-    <style th:inline="css" type="text/css">
-        body {
-            margin: 30px;
-            border: 1px solid red;
-        }
-    </style>
-
-    <!-- inline JS 영역-->
-    <script th:inline="javascript" type="text/javascript">
-      $(document).ready(() => {
-        alert("페이지가 시작됩니다.")
-      });
-    </script>
-</head>
-
-<body>
 <div>
     <h1>Content 영역입니다.</h1>
 </div>
-</body>
+
 </html>

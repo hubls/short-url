@@ -20,8 +20,8 @@ public class ViewController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("title", "안녕하세요");
-        return "pages/main"; // index.html을 반환
+//        model.addAttribute("title", "안녕하세요");
+        return "pages/main";
     }
 
     @GetMapping("/{id}")
