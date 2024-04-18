@@ -8,7 +8,52 @@
 >
 
 <div>
-    <h1>Content 영역입니다.</h1>
+    <h2>링크 단축</h2>
+
+    <form id="urlForm">
+        <label for="url">줄이고 싶은 URL</label><br>
+        <input type="text" id="url" name="url">
+        <input type="button" class="btn btn-dark" value="Shorten URL" onclick="submitForm()">
+    </form>
+
+    <div id="result"></div>
 </div>
+
+<script>
+  function submitForm() {
+    let urlFormData = new FormData(document.getElementById("urlForm"));
+    let urlValue = urlFormData.get("url");
+
+
+    console.log('urlValue : ' + urlValue);
+    // urlForm이 존재하지 않거나 비어있는 경우 조기 종료
+    if (urlValue.length === 0) {
+      alert('URL을 입력해주세요.');
+      return;
+    }
+
+    fetch('/url', {
+      method: 'POST',
+      body: urlFormData
+    })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("result").innerHTML = data;
+        // 복사 버튼 생성
+        let copyButton = document.createElement('button');
+        copyButton.innerText = '복사하기';
+        copyButton.addEventListener('click', function() {
+          // 결과 텍스트를 클립보드에 복사
+          navigator.clipboard.writeText(data)
+            .then(() => alert('URL이 복사되었습니다.'))
+            .catch(err => console.error('복사 실패: ', err));
+        });
+        document.getElementById("result").appendChild(copyButton);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+</script>
 
 </html>
