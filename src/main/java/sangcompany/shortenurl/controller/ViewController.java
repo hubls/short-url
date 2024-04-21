@@ -9,6 +9,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import sangcompany.shortenurl.dto.UrlDto;
 import sangcompany.shortenurl.service.UrlService;
 
+import java.util.Optional;
+
 @Controller
 public class ViewController {
     private final UrlService urlService;
@@ -26,12 +28,10 @@ public class ViewController {
 
     @GetMapping("/{id}")
     public RedirectView getUrlByOriginalUrl(@PathVariable("id") String id) {
-        UrlDto url = urlService.getOriginalUrl(id);
+        Optional<UrlDto> optionalUrl = Optional.ofNullable(urlService.getOriginalUrl(id));
 
-        if (url == null) {
-            return new RedirectView("/"); // id에 해당하는 URL이 없으면 루트로 리다이렉트
-        }
-
-        return new RedirectView(url.getOriginalUrl());
+        return optionalUrl
+                .map(url -> new RedirectView(url.getOriginalUrl())) // 값이 있으면 해당 URL로 리다이렉트
+                .orElseGet(() -> new RedirectView("/")); // 값이 없으면 루트로 리다이렉트
     }
 }
