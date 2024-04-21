@@ -1,26 +1,19 @@
 package sangcompany.shortenurl.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import sangcompany.shortenurl.dto.UrlDto;
 import sangcompany.shortenurl.repository.UrlRepository;
-import sangcompany.shortenurl.util.SecureRandomStringGenerator;
-
-import java.util.List;
 
 @Service
 public class UrlService {
-
-    @Value("${shorturl.ip}")
-    private String serverIp;
     private final UrlRepository urlRepository;
-    private final SecureRandomStringGenerator secureRandomStringGenerator;
+    private final UrlDtoCreator urlDtoCreator;
 
     @Autowired
-    public UrlService(UrlRepository urlRepository, SecureRandomStringGenerator secureRandomStringGenerator) {
+    public UrlService(UrlRepository urlRepository, UrlDtoCreator urlDtoCreator) {
         this.urlRepository = urlRepository;
-        this.secureRandomStringGenerator = secureRandomStringGenerator;
+        this.urlDtoCreator = urlDtoCreator;
     }
 
     public String createShortUrl(String originalUrl) {
@@ -34,13 +27,6 @@ public class UrlService {
     }
 
     private UrlDto generateUrlDto(final String originalUrl) {
-        UrlDto urlDto = new UrlDto();
-        String urlId = secureRandomStringGenerator.generateRandomString(4);
-
-        urlDto.setId(urlId);
-        urlDto.setOriginalUrl(originalUrl);
-        urlDto.setShortUrl(serverIp + "/" + urlId);
-
-        return urlDto;
+        return urlDtoCreator.CreateUrlDto(originalUrl);
     }
 }
