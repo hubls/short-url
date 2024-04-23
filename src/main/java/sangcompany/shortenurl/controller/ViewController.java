@@ -1,5 +1,6 @@
 package sangcompany.shortenurl.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import sangcompany.shortenurl.service.UrlService;
 
 import java.util.Optional;
 
+@Slf4j
 @Controller
 public class ViewController {
     private final UrlService urlService;
@@ -21,8 +23,7 @@ public class ViewController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
-//        model.addAttribute("name", "안녕하세요");
+    public String index() {
         return "pages/index";
     }
 
