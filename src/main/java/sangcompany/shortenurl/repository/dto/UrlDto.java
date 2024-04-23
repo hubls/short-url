@@ -1,4 +1,4 @@
-package sangcompany.shortenurl.dto;
+package sangcompany.shortenurl.repository.dto;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;

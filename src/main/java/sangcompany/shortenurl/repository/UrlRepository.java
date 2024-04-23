@@ -1,7 +1,7 @@
 package sangcompany.shortenurl.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import sangcompany.shortenurl.dto.UrlDto;
+import sangcompany.shortenurl.repository.dto.UrlDto;
 
 
 public interface UrlRepository extends MongoRepository<UrlDto, String> {
