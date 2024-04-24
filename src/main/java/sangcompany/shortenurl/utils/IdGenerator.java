@@ -1,4 +1,4 @@
-package sangcompany.shortenurl.util;
+package sangcompany.shortenurl.utils;
 
 import org.springframework.stereotype.Component;
 
