@@ -8,7 +8,7 @@ import sangcompany.shortenurl.service.UrlService;
 
 @Slf4j
 @RestController
-@RequestMapping("/url")
+@RequestMapping("/api/url")
 public class UrlController {
     private final UrlService urlService;
 

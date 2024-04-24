@@ -333,7 +333,7 @@
     let shortenButton = document.querySelector("#urlForm input[type='button']");
     shortenButton.disabled = true;  // 버튼 비활성화
 
-    fetch('/url', {
+    fetch('/api/url', {
       method: 'POST',
       body: urlFormData
     })
