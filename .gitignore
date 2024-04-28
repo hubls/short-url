@@ -35,4 +35,10 @@ out/
 ### VS Code ###
 .vscode/
 
+## 환경 변수
 application.properties
+application-local.properties
+application-prod.properties
+
+## 로그 파일
+log/
