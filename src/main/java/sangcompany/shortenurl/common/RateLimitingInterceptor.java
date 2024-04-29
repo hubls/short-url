@@ -71,7 +71,7 @@ public class RateLimitingInterceptor implements HandlerInterceptor {
         RateLimitResponse.successResponse(
                 response, consumptionProbe.getRemainingTokens(), BUCKET_CAPACITY, CALLS_IN_SECONDS);
 
-        log.info("remaining token: {}", consumptionProbe.getRemainingTokens());
+        log.info("[{}] remaining token: {}", clientIp, consumptionProbe.getRemainingTokens());
         return false;
     }
 
