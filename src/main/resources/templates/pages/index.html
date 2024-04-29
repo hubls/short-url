@@ -53,7 +53,7 @@
                 <form id="urlForm">
                     <div style="display: flex; align-items: center;">
                         <input class="form-control noto-sans" type="url" id="url" name="url" placeholder="줄이고 싶은 URL" required>
-                        <input type="button" class="btn btn-primary btn-md" value="Shorten URL" onclick="submitForm()">
+                        <input type="button" class="btn btn-primary btn-md" value="Shorten URL" onclick="submitUrlForm()">
                     </div>
                     <div id="invalidFeedback" class="invalid-feedback">유효한 URL을 입력해주세요.</div>
                 </form>
@@ -317,7 +317,7 @@
     return pattern.test(url);
   }
 
-  function submitForm() {
+  function submitUrlForm() {
     const invalidFeedback = document.getElementById("invalidFeedback");
     let urlFormData = new FormData(document.getElementById("urlForm"));
     let urlValue = urlFormData.get("url");
@@ -350,7 +350,7 @@
           navigator.clipboard.writeText(data)
             .then(() => {
               alert('URL이 복사되었습니다.');
-              shortenButton.onclick = submitForm; // 기존 버튼으로 변경
+              shortenButton.onclick = submitUrlForm; // 기존 버튼으로 변경
               shortenButton.value = 'Shorten URL';  // 버튼 텍스트 기존 버튼으로 변경
               urlInput.value = '';  // input 필드 비우기
             })
