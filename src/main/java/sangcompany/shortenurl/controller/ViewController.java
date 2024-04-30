@@ -39,4 +39,9 @@ public class ViewController {
     public String privacy() {
         return "pages/privacy";
     }
+
+    @GetMapping("/policy/service")
+    public String service() {
+        return "pages/service";
+    }
 }
