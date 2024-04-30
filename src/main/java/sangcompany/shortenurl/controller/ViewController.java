@@ -34,4 +34,9 @@ public class ViewController {
                 .map(url -> new RedirectView(url.getOriginalUrl())) // 값이 있으면 해당 URL로 리다이렉트
                 .orElseGet(() -> new RedirectView("/")); // 값이 없으면 루트로 리다이렉트
     }
+
+    @GetMapping("/policy/privacy")
+    public String privacy() {
+        return "pages/privacy";
+    }
 }
