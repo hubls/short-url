@@ -31,9 +31,17 @@ public class UrlDtoCreator {
 
         UrlDto urlDto = new UrlDto();
         urlDto.setId(urlId);
-        urlDto.setOriginalUrl(originalUrl);
+        urlDto.setOriginalUrl(addHttpPrefixIfMissing(originalUrl));
         urlDto.setShortUrl(serverIp + "/" + urlId);
 
         return urlDto;
+    }
+
+    private String addHttpPrefixIfMissing(String url) {
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            return url;
+        }
+
+        return "http://".concat(url);
     }
 }
