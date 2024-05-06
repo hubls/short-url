@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
 @SpringBootApplication
 @EnableMongoAuditing
-public class Practice01Application {
+public class ShortUrlApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Practice01Application.class, args);
+		SpringApplication.run(ShortUrlApplication.class, args);
 	}
 
 }
