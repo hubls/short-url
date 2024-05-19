@@ -1,6 +1,6 @@
 # 🍀short-url
 
-<img  src="https://github.com/hubls/short-url/assets/18051516/b51d4b94-e57d-4476-9c00-ee3a35bffc6d" height="300px" width="300px"></p>
+<img  src="https://github.com/hubls/short-url/assets/18051516/da1e3b3f-dd9a-4d6a-a9d8-07971fd447bc" height="300px" width="300px"></p>
 
 #### Java, Spring으로 개발하는 URL 단축 사이트
 
@@ -37,7 +37,7 @@
 
 ## 🚀 배포 웹사이트 화면
 
-### 1. **사이트 접속** (www.pojay.com)
+### 1. **사이트 접속**
 
 ![사이트접속](https://github.com/hubls/short-url/assets/18051516/ccf9bd28-5e9a-443d-81b3-bdb4bb8ca2b1)
 
